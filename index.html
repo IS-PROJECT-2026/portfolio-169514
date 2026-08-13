@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayana Ndete — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="terminal">
+    <header class="terminal-header">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="terminal-title">ayana@portfolio:~$</span>
+    </header>
+
+    <main class="terminal-body">
+      <section id="about">
+        <p class="prompt">$ whoami</p>
+        <h1>Ayana Ndete</h1>
+        <p class="output">Software developer. Building things that talk to hardware and to language models.</p>
+      </section>
+
+      <section id="projects">
+        <p class="prompt">$ ls projects/</p>
+        <div class="project-grid"></div>
+      </section>
+
+      <section id="skills">
+        <p class="prompt">$ cat skills.txt</p>
+        <div class="skills-list"></div>
+      </section>
+
+      <section id="contact">
+        <p class="prompt">$ cat contact.txt</p>
+        <div class="contact-links"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
