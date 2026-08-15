@@ -1,53 +1,138 @@
+/* ==========================================================================
+   Design Tokens
+   ========================================================================== */
 :root {
   --bg: #0d0f0d;
+  --bg-panel: #111311;
   --fg: #00ff9c;
-  --dim: #4d7a63;
+  --fg-dim: #4d7a63;
+  --fg-muted: #7a9c8a;
   --border: #1f3d2c;
+  --accent-red: #ff5f56;
+  --accent-yellow: #ffbd2e;
+  --accent-green: #27c93f;
+
+  --font-mono: 'Courier New', Courier, monospace;
+  --fs-sm: 0.85rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.4rem;
+  --fs-xl: 1.8rem;
+
+  --space-xs: 0.4rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+
+  --radius: 6px;
 }
 
+/* ==========================================================================
+   Reset
+   ========================================================================== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
+  font-size: var(--fs-base);
+  line-height: 1.5;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: var(--space-md);
 }
 
+/* ==========================================================================
+   Terminal shell
+   ========================================================================== */
 .terminal {
   width: 100%;
   max-width: 800px;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: var(--radius);
   overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 255, 156, 0.05);
 }
 
 .terminal-header {
-  background: #111;
-  padding: 0.6rem 1rem;
+  background: var(--bg-panel);
+  padding: var(--space-xs) var(--space-sm);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   border-bottom: 1px solid var(--border);
 }
 
 .dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
-.terminal-title { margin-left: 1rem; color: var(--dim); font-size: 0.85rem; }
+.dot.red { background: var(--accent-red); }
+.dot.yellow { background: var(--accent-yellow); }
+.dot.green { background: var(--accent-green); }
+.terminal-title { margin-left: var(--space-sm); color: var(--fg-dim); font-size: var(--fs-sm); }
 
-.terminal-body { padding: 1.5rem; }
-.prompt { color: var(--dim); margin-top: 1.5rem; }
-.prompt:first-child { margin-top: 0; }
-h1 { margin: 0.3rem 0; font-size: 1.8rem; }
-.output { color: var(--fg); line-height: 1.5; }
+.terminal-body { padding: var(--space-md); }
 
+/* ==========================================================================
+   Typography / prompt pattern
+   ========================================================================== */
+.prompt {
+  color: var(--fg-dim);
+  margin-top: var(--space-md);
+  font-size: var(--fs-sm);
+}
+.prompt::before { content: ""; }
+section:first-child .prompt { margin-top: 0; }
+
+h1 { font-size: var(--fs-xl); margin: var(--space-xs) 0; font-weight: bold; }
+h2 { font-size: var(--fs-lg); margin: var(--space-xs) 0; }
+.output { color: var(--fg); }
+.muted { color: var(--fg-muted); }
+
+a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--fg-dim);
+}
+a:hover { text-decoration-color: var(--fg); }
+
+/* ==========================================================================
+   Reusable components
+   ========================================================================== */
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-sm);
+  margin-top: var(--space-xs);
+  background: var(--bg-panel);
+}
+
+.tag {
+  display: inline-block;
+  border: 1px solid var(--fg-dim);
+  color: var(--fg-dim);
+  font-size: var(--fs-sm);
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  margin: 0.2rem 0.3rem 0.2rem 0;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid var(--fg);
+  color: var(--fg);
+  padding: 0.4rem 0.9rem;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  transition: background 0.15s ease;
+}
+.btn:hover { background: rgba(0, 255, 156, 0.1); }
+
+/* ==========================================================================
+   Responsive breakpoints (base pass — refined further in issue #3)
+   ========================================================================== */
 @media (max-width: 600px) {
-  .terminal-body { padding: 1rem; }
-  h1 { font-size: 1.4rem; }
+  .terminal-body { padding: var(--space-sm); }
+  h1 { font-size: var(--fs-lg); }
 }
