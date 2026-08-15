@@ -177,3 +177,16 @@ a:hover { text-decoration-color: var(--fg); }
 @media (min-width: 901px) {
   .project-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ==========================================================================
+   Telemetry ticker
+   ========================================================================== */
+.telemetry-ticker {
+  margin-left: auto;
+  color: var(--fg-dim);
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 600px) {
+  .telemetry-ticker { display: none; }
+}
