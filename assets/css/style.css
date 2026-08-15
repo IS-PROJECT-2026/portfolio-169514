@@ -136,3 +136,44 @@ a:hover { text-decoration-color: var(--fg); }
   .terminal-body { padding: var(--space-sm); }
   h1 { font-size: var(--fs-lg); }
 }
+
+/* ==========================================================================
+   Grid layout system
+   ========================================================================== */
+.project-grid,
+.skills-list,
+.contact-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.skills-list { grid-template-columns: repeat(3, 1fr); }
+.contact-links { grid-template-columns: repeat(2, 1fr); }
+
+/* ==========================================================================
+   Responsive breakpoints
+   ========================================================================== */
+
+/* Tablet: 601px–900px */
+@media (min-width: 601px) and (max-width: 900px) {
+  .terminal { max-width: 90vw; }
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+  .skills-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile: up to 600px — single column everywhere */
+@media (max-width: 600px) {
+  .terminal { max-width: 100%; }
+  .project-grid,
+  .skills-list,
+  .contact-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop: 901px+ — comfortable max-width already set on .terminal */
+@media (min-width: 901px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
