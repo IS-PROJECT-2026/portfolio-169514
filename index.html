@@ -7,14 +7,15 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="terminal">
     <header class="terminal-header">
-      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="dot red" aria-hidden="true"></span><span class="dot yellow" aria-hidden="true"></span><span class="dot green" aria-hidden="true"></span>
       <span class="terminal-title">ayana@portfolio:~$</span>
     </header>
 
-    <main class="terminal-body">
-      <section id="about">
+    <main class="terminal-body" id="main-content">
+      <section id="about" aria-label="About">
         <p class="prompt">$ whoami</p>
         <h1>Ayana Ndete</h1>
         <p class="output">I build things at the intersection of IoT and AI — systems where sensors, microcontrollers, and language models all have to work together in the real world, not just in a demo.</p>
@@ -22,7 +23,7 @@
         <p class="output muted">What ties it together: I like systems that sense the world, reason about it, and act on it.</p>
       </section>
 
-      <section id="projects">
+      <section id="projects" aria-label="Projects">
         <p class="prompt">$ ls projects/</p>
         <div class="project-grid">
           <div class="card">
@@ -43,7 +44,7 @@
         </div>
       </section>
 
-      <section id="skills">
+      <section id="skills" aria-label="Skills">
         <p class="prompt">$ cat skills.txt</p>
         <div class="skills-list">
           <span class="tag">Python</span>
@@ -58,7 +59,7 @@
         </div>
       </section>
 
-      <section id="contact">
+      <section id="contact" aria-label="Contact">
         <p class="prompt">$ cat contact.txt</p>
         <div class="contact-links">
           <a class="btn" href="https://github.com/Ayana-Ndete" target="_blank" rel="noopener">GitHub</a>
